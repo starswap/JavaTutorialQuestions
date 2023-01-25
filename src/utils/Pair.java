@@ -1,20 +1,13 @@
 package utils;
 
-public class Pair<A,B> {
-    private final A first;
-    private final B second;
-
-    public Pair(A first, B second) {
-        this.first = first;
-        this.second = second;
+public record Pair<A, B>(A first, B second) {
+    public boolean equals(Object other) {
+        if (other instanceof Pair<?, ?> otherPair) { // for the casting
+            return otherPair.first().equals(this.first()) && otherPair.second()
+                .equals(this.second());
+        }
+        else {
+            return false;
+        }
     }
-
-    public A first() {
-        return this.first;
-    }
-
-    public B second() {
-        return this.second;
-    }
-
 }

@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,3 +34,13 @@ public class Q014e {
   }
 
 }
+
+// Improvements
+//    - Use an array of booleans instead of a set, to express which numbers we have seen so far.
+//         (would be more efficient)
+//    - Could use an assertion to ensure that we have at least one argument.
+//    - As in previous questions you can do the output during the generation.
+//         (I would argue doing it that way leads to potentially less maintainable code since we
+//         don't have separation of concerns, however a key advantage is that the memory use of the
+//         program is considerably lower as we don't have to store all of the generated numbers. We only
+//         need to store the number of generated numbers, which we will need to output and use for a loop exit condition.)
